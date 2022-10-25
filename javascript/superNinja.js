@@ -51,3 +51,4 @@ let alan = new Sensei('Alan');
 
 alan.showStats();
 alan.speakWisdom();
+will.drinkShake();
