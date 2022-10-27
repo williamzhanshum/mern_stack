@@ -1,0 +1,39 @@
+.header {
+  width: 98%;
+  height: 20%;
+  /* margin: 0 auto; */
+  margin-bottom: 15px;
+  background-color: #6aa84f;
+}
+
+.navigation {
+  width: 25%;
+  height: 65%;
+  background-color: #6fa8dc;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 15px;
+}
+
+.main {
+  width: 70%;
+  height: 75%;
+  background-color: #e06666;
+  padding: 15px;
+  display: inline-block;
+}
+
+.subcontent {
+  width: 31%;
+  height: 70%;
+  background-color: #ffd966;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.advertisement {
+  width: 98%;
+  height: 20%;
+  background-color: #b4a7d6;
+  margin-top: 20px;
+}
