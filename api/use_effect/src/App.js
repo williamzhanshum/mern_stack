@@ -1,10 +1,11 @@
-import Example from './Example';
+// import Example from './Example';
 import './App.css';
+import TimeDisplay from './TimeDisplay';
 
 function App() {
   return (
     <div className='App'>
-      <Example />
+      <TimeDisplay />
     </div>
   );
 }
