@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import OnePokemon from './OnePokemon';
 
 const Pokemon = (props) => {
-  const [pokemon, setPokemon] = useState([
-    {
-      name: '',
-      url: '',
-    },
-  ]);
+  const [pokemon, setPokemon] = useState([]);
 
   const fetchPokemon = (e) => {
     e.preventDefault();
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=1154')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=151')
       .then((res) => {
         setPokemon(res.data.results);
         console.log(res.data.results);
@@ -23,9 +19,9 @@ const Pokemon = (props) => {
   return (
     <>
       <button onClick={fetchPokemon}>Fetch Pokèmon</button>
-      {pokemon.map((p, key) => {
-        return <p key={key}>{p.name}</p>;
-      })}
+      {pokemon.map((p, key) => (
+        <OnePokemon key={key} pokemon={p} />
+      ))}
     </>
   );
 };
