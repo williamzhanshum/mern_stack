@@ -3,15 +3,15 @@ import axios from 'axios';
 import OnePokemon from './OnePokemon';
 
 const Pokemon = (props) => {
-  const [pokemon, setPokemon] = useState([]);
+  const [allPokemon, setAllPokemon] = useState([]);
 
   const fetchPokemon = (e) => {
     e.preventDefault();
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=151')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=1')
       .then((res) => {
-        setPokemon(res.data.results);
-        console.log(res.data.results);
+        setAllPokemon(res.data.results);
+        // console.log(res.data.results);
       })
       .catch((err) => console.log(err));
   };
@@ -19,8 +19,8 @@ const Pokemon = (props) => {
   return (
     <>
       <button onClick={fetchPokemon}>Fetch Pokèmon</button>
-      {pokemon.map((p, key) => (
-        <OnePokemon key={key} pokemon={p} />
+      {allPokemon.map((oneSinglePokemon, indexInArray) => (
+        <OnePokemon key={indexInArray} pokemon={oneSinglePokemon} />
       ))}
     </>
   );

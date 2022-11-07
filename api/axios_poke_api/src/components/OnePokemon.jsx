@@ -7,22 +7,28 @@ const OnePokemon = (props) => {
     sprites: {
       front_default: '',
     },
+    types: [],
   });
 
   useEffect(() => {
     axios
       .get(pokemon.url)
       .then((res) => {
-        console.log(res.data);
+        // console.log(pokemon);
+        // console.log(res.data);
         setThisPokemon(res.data);
       })
       .catch((err) => {});
   }, []);
 
+  console.log(`thisPokemon: ${JSON.stringify(thisPokemon)}`);
   return (
     <>
       <img src={thisPokemon.sprites.front_default} alt='' />
-      <p>{pokemon.name}</p>
+      <h3>{pokemon.name}</h3>
+      {thisPokemon.types.map((value, index) => (
+        <p>{value.type.name}</p>
+      ))}
     </>
   );
 };
