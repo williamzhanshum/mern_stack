@@ -1,9 +1,17 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 8000;
 const DB = 'ninjas';
 
 // --- MIDDLEWARE ---
+app.use(cors()); // If you are deploying, this method of deploying cors is not correct. This way anyone can access the server. You need to input an obj of validations inside of cors() to limit who can access the server.
+/* Example:
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET','POST']
+}))
+*/
 app.use(express.json(), express.urlencoded({ extended: true }));
 
 // CONNECTED to the DB using mongoose

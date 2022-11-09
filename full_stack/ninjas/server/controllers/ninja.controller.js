@@ -14,7 +14,7 @@ module.exports.findAllNinjas = (req, res) => {
     .then((allDaNinjas) => {
       // IMPORTANT what we return here is what we will receive in REACT!
       //   res.json({ ninjas: allDaNinjas, status: 'ok' }); // Same as below, the one below is ES7 format
-      res.json({ allDaNinjas }); // returns an []
+      res.json(allDaNinjas); // returns an []
     })
     .catch((err) =>
       res.jason({ message: 'something went wrong', serverError: err })
@@ -23,7 +23,7 @@ module.exports.findAllNinjas = (req, res) => {
 
 // CREATE
 module.exports.createNinja = (req, res) => {
-  // console.log('req.body =', req.body);
+  console.log('req.body =', req.body);
   // Same as saying: db.ninjas.insertOne({name: ..., numberOfbelts: ..., isGraduating: true})
   Ninja.create(req.body)
     .then((newlyCreatedNinja) => res.json({ ninja: newlyCreatedNinja }))
