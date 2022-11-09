@@ -23,7 +23,7 @@ module.exports.findAllNinjas = (req, res) => {
 
 // CREATE
 module.exports.createNinja = (req, res) => {
-  console.log('req.body =', req.body);
+  // console.log('req.body =', req.body);
   // Same as saying: db.ninjas.insertOne({name: ..., numberOfbelts: ..., isGraduating: true})
   Ninja.create(req.body)
     .then((newlyCreatedNinja) => res.json({ ninja: newlyCreatedNinja }))
