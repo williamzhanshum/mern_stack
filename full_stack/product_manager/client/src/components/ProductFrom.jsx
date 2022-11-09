@@ -21,7 +21,7 @@ const ProductForm = () => {
       <h1>Product Manager</h1>
       <form>
         <p>
-          <lable>Title</lable>
+          <label>Title</label>
           <input
             type='text'
             onChange={(e) => setTitle(e.target.value)}
@@ -29,7 +29,7 @@ const ProductForm = () => {
           />
         </p>
         <p>
-          <lable>Price</lable>
+          <label>Price</label>
           <input
             type='text'
             onChange={(e) => setPrice(e.target.value)}
@@ -37,7 +37,7 @@ const ProductForm = () => {
           />
         </p>
         <p>
-          <lable>Description</lable>
+          <label>Description</label>
           <input
             type='text'
             onChange={(e) => setDesc(e.target.value)}
