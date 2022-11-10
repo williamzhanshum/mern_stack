@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ProductForm = () => {
+const ProductForm = (props) => {
   // Keep track of what is being used via useState hook
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
-  const [desc, setDesc] = useState('');
+  const [description, setDescription] = useState('');
 
   // Handler when button is clicked
   const createProduct = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8000/api/products', { title, price, desc })
-      .then((res) => console.log(res))
+      .post('http://localhost:8000/api/products', { title, price, description })
+      .then((res) => {
+        // console.log('POST', res.data);
+        props.addProductToProducts(res.data);
+      })
       .catch((err) => console.log(err));
+    setTitle('');
+    setPrice('');
+    setDescription('');
   };
 
   return (
@@ -40,8 +46,8 @@ const ProductForm = () => {
           <label>Description</label>
           <input
             type='text'
-            onChange={(e) => setDesc(e.target.value)}
-            value={desc}
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
           />
         </p>
         <button onClick={createProduct}>Create</button>
