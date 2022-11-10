@@ -5,8 +5,10 @@ import { useParams, Link } from 'react-router-dom';
 const Detail = (props) => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  const { deleteProduct } = props;
 
   useEffect(() => {
+    console.log('HERE IS ID', id);
     axios
       .get(`http://localhost:8000/api/products/${id}`)
       .then((res) => {
@@ -14,22 +16,7 @@ const Detail = (props) => {
         setProduct(res.data);
       })
       .catch((err) => console.error(err));
-  }, []);
-
-  // Deletes a product from products array and from the dom.
-  // const removeProductFromProducts = (id) => {
-  //   setProducts(products.filter((product) => product._id !== id));
-  // };
-
-  // Delete Product
-  // const deleteProduct = (id) => {
-  //   axios
-  //     .delete(`http://localhost:8000/api/products/${id}`)
-  //     .then((res) => {
-  //       removeProductFromProducts(id);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
+  }, [id]);
 
   return (
     <div>
@@ -37,9 +24,14 @@ const Detail = (props) => {
       <p>Price: {product.price}</p>
       <p>Description: {product.description}</p>
       <Link to={`/products/${product._id}/edit`}>Edit</Link>
-      {/* <Link to={`/products`} onClick={deleteProduct}>
+      <Link
+        to={`/products`}
+        onClick={() => {
+          deleteProduct(product._id);
+        }}
+      >
         Delete
-      </Link> */}
+      </Link>
     </div>
   );
 };

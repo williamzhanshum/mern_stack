@@ -4,16 +4,7 @@ import { Link } from 'react-router-dom';
 // import { useParams } from 'react-router';
 
 const ProductList = (props) => {
-  const { removeProductFromProducts } = props;
-
-  const deleteProduct = (productId) => {
-    axios
-      .delete(`http://localhost:8000/api/products/${productId}`)
-      .then((res) => {
-        removeProductFromProducts(productId);
-      })
-      .catch((err) => console.error(err));
-  };
+  const { deleteProduct } = props;
 
   return (
     <div>
