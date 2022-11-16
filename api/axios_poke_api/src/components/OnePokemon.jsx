@@ -23,13 +23,13 @@ const OnePokemon = (props) => {
 
   console.log(`thisPokemon: ${JSON.stringify(thisPokemon)}`);
   return (
-    <>
+    <div className='flex flex-col items-center align-middle border-2  bg-silver py-2'>
       <img src={thisPokemon.sprites.front_default} alt='' />
-      <h3>{pokemon.name}</h3>
+      <h3 className='tracking-widest font-bold mb-1'>{pokemon.name}</h3>
       {thisPokemon.types.map((value, index) => (
-        <p>{value.type.name}</p>
+        <p className='italic'>{value.type.name}</p>
       ))}
-    </>
+    </div>
   );
 };
 
